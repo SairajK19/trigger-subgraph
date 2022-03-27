@@ -1,0 +1,35 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TriggerProtocol
+    network: mumbai
+    source:
+      address: "0xFfE78A0cF80B24ff9b4F0a4530a6cdD31766C3a6"
+      abi: TriggerProtocol
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - NFTminted
+        - PortalCreated
+        - PortalJoined
+        - PortalXPClaimed
+        - Staked
+      abis:
+        - name: TriggerProtocol
+          file: ./abis/TriggerProtocol.json
+      eventHandlers:
+        - event: NFTminted(uint256,uint256,string,address,address,address,bool,uint256)
+          handler: handleNFTminted
+        - event: PortalCreated(string,uint256,uint256,address,uint256)
+          handler: handlePortalCreated
+        - event: PortalJoined(uint256,address)
+          handler: handlePortalJoined
+        - event: PortalXPClaimed(uint256,address,uint256)
+          handler: handlePortalXPClaimed
+        - event: Staked(uint256,address,uint256,uint256)
+          handler: handleStaked
+      file: ./src/mapping.ts
