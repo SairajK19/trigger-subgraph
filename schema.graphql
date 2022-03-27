@@ -1,0 +1,50 @@
+#type ExampleEntity @entity {
+#  id: ID!
+#  count: BigInt!
+#  portalId: BigInt! # uint256
+#  tokenId: BigInt! # uint256
+# }
+
+type TriggerNfts @entity {
+  id: ID!
+  tokenId: BigInt!
+  portalId: BigInt!
+  tokenUri: String!
+  currentOwner: Bytes! # address
+  previousOwner: Bytes!
+  mintedBy: Bytes!
+  forSale: Boolean!
+  price: BigInt!
+}
+
+type TriggerPortals @entity {
+  id: ID!
+  dbThreadID: String!
+  appId: BigInt!
+  createdAt: BigInt
+  createBy: Bytes!
+  totalNfts: BigInt!
+  totalMembers: BigInt!
+  totalVolume: BigInt!
+}
+
+type Users @entity {
+  id: ID!
+  userAddr: Bytes!
+  portal: BigInt!
+}
+
+type Stakes @entity {
+  id: ID!
+  portalId: BigInt!
+  amount: BigInt!
+  timestamp: BigInt!
+  staker: Bytes!
+}
+
+type ClaimedXps @entity {
+  id: ID!
+  portalId: BigInt!
+  claimer: Bytes!
+  amount: BigInt!
+}
