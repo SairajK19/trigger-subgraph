@@ -5,7 +5,7 @@
 #  tokenId: BigInt! # uint256
 # }
 
-type TriggerNfts @entity {
+type TriggerNft @entity {
   id: ID!
   tokenId: BigInt!
   portalId: BigInt!
@@ -17,7 +17,7 @@ type TriggerNfts @entity {
   price: BigInt!
 }
 
-type TriggerPortals @entity {
+type TriggerPortal @entity {
   id: ID!
   dbThreadID: String!
   appId: BigInt!
@@ -28,13 +28,13 @@ type TriggerPortals @entity {
   totalVolume: BigInt!
 }
 
-type Users @entity {
+type User @entity {
   id: ID!
   userAddr: Bytes!
   portal: BigInt!
 }
 
-type Stakes @entity {
+type Stake @entity {
   id: ID!
   portalId: BigInt!
   amount: BigInt!
@@ -42,7 +42,7 @@ type Stakes @entity {
   staker: Bytes!
 }
 
-type ClaimedXps @entity {
+type ClaimedXp @entity {
   id: ID!
   portalId: BigInt!
   claimer: Bytes!

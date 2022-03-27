@@ -11,7 +11,7 @@ import {
   BigDecimal,
 } from "@graphprotocol/graph-ts";
 
-export class TriggerNfts extends Entity {
+export class TriggerNft extends Entity {
   constructor(id: string) {
     // tokenId: BigInt!
     // portalId: BigInt!
@@ -40,15 +40,15 @@ export class TriggerNfts extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type TriggerNfts must have an ID of type String but the id '${id.displayData()} is of type ${id.displayKind()}'`
+        `Entities of type TriggerNft must have an ID of type String but the id '${id.displayData()} is of type ${id.displayKind()}'`
       );
 
-      store.set("TriggerNfts", id.toString(), this);
+      store.set("TriggerNft", id.toString(), this);
     }
   }
 
-  static load(id: string): TriggerNfts | null {
-    return changetype<TriggerNfts | null>(store.get("TriggerNfts", id));
+  static load(id: string): TriggerNft | null {
+    return changetype<TriggerNft | null>(store.get("TriggerNft", id));
   }
 
   get id(): string {
@@ -133,7 +133,7 @@ export class TriggerNfts extends Entity {
   }
 }
 
-export class TriggerPortals extends Entity {
+export class TriggerPortal extends Entity {
   constructor(id: string) {
     // id: ID!;
     // dbThreadID: String!;
@@ -157,20 +157,20 @@ export class TriggerPortals extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save TriggerPortals without an ID");
+    assert(id != null, "Cannot save TriggerPortal without an ID");
 
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type TriggerPortals must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type TriggerPortal must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
 
-      store.set("TriggerPortals", id.toString(), this);
+      store.set("TriggerPortal", id.toString(), this);
     }
   }
 
-  static load(id: string): TriggerPortals | null {
-    return changetype<TriggerPortals | null>(store.get("TriggerPortals", id));
+  static load(id: string): TriggerPortal | null {
+    return changetype<TriggerPortal | null>(store.get("TriggerPortal", id));
   }
 
   get id(): string {
@@ -246,7 +246,7 @@ export class TriggerPortals extends Entity {
   }
 }
 
-export class Users extends Entity {
+export class User extends Entity {
   constructor(id: string) {
     //   userAddr: Bytes!
     //   portal: BigInt!
@@ -259,20 +259,20 @@ export class Users extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save Users without an ID");
+    assert(id != null, "Cannot save User without an ID");
 
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Users must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type User must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
 
-      store.set("Users", id.toString(), this);
+      store.set("User", id.toString(), this);
     }
   }
 
-  static load(id: string): Users | null {
-    return changetype<Users | null>(store.get("User", id));
+  static load(id: string): User | null {
+    return changetype<User | null>(store.get("User", id));
   }
 
   get id(): string {
@@ -303,7 +303,7 @@ export class Users extends Entity {
   }
 }
 
-export class Stakes extends Entity {
+export class Stake extends Entity {
   constructor(id: string) {
     // id: ID!
     // portalId: BigInt!
@@ -321,20 +321,20 @@ export class Stakes extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save Stakes without an ID");
+    assert(id != null, "Cannot save Stake without an ID");
 
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Stakes must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Stake must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
 
-      store.set("Stakes", id.toString(), this);
+      store.set("Stake", id.toString(), this);
     }
   }
 
-  static load(id: string): Stakes | null {
-    return changetype<Stakes | null>(store.get("Stakes", id));
+  static load(id: string): Stake | null {
+    return changetype<Stake | null>(store.get("Stake", id));
   }
 
   get id(): string {
@@ -383,7 +383,7 @@ export class Stakes extends Entity {
   }
 }
 
-export class ClaimedXps extends Entity {
+export class ClaimedXp extends Entity {
   constructor(id: string) {
     // id: ID!;
     // portalId: BigInt!;
@@ -399,20 +399,20 @@ export class ClaimedXps extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save ClaimedXps without an ID");
+    assert(id != null, "Cannot save ClaimedXp without an ID");
 
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type ClaimedXps must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type ClaimedXp must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
 
-      store.set("ClaimedXps", id.toString(), this);
+      store.set("ClaimedXp", id.toString(), this);
     }
   }
 
-  static load(id: string): ClaimedXps | null {
-    return changetype<ClaimedXps | null>(store.get("ClaimedXps", id));
+  static load(id: string): ClaimedXp | null {
+    return changetype<ClaimedXp | null>(store.get("ClaimedXp", id));
   }
 
   get id(): string {
