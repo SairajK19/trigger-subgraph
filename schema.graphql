@@ -26,6 +26,7 @@ type TriggerPortal @entity {
   totalNfts: BigInt!
   totalMembers: BigInt!
   totalVolume: BigInt!
+  portalId: BigInt!
 }
 
 type User @entity {

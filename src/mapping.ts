@@ -16,10 +16,14 @@ import {
 } from "../generated/schema";
 
 export function handleNFTminted(event: NFTminted): void {
-  let triggerNfts = TriggerNft.load(event.transaction.from.toHex());
+  let triggerNfts = TriggerNft.load(
+    event.transaction.from.toHex() + event.params.tokenId.toString()
+  );
 
   if (!triggerNfts) {
-    triggerNfts = new TriggerNft(event.transaction.from.toHex());
+    triggerNfts = new TriggerNft(
+      event.transaction.from.toHex() + event.params.tokenId.toString()
+    );
   }
 
   triggerNfts.tokenId = event.params.tokenId;
@@ -64,15 +68,20 @@ export function handlePortalCreated(event: PortalCreated): void {
   triggerPortal.appId = event.params.appID;
   triggerPortal.createdAt = event.params.createdAt;
   triggerPortal.createBy = event.params.createdBy;
+  triggerPortal.portalId = event.params.portalId;
 
-  triggerPortal.save()
+  triggerPortal.save();
 }
 
 export function handlePortalJoined(event: PortalJoined): void {
-  let user = User.load(event.transaction.from.toHex());
+  let user = User.load(
+    event.transaction.from.toHex() + event.params.portalId.toString()
+  );
 
   if (!user) {
-    user = new User(event.transaction.from.toHex());
+    user = new User(
+      event.transaction.from.toHex() + event.params.portalId.toString()
+    );
   }
 
   user.portal = event.params.portalId;
@@ -93,10 +102,14 @@ export function handlePortalJoined(event: PortalJoined): void {
 }
 
 export function handlePortalXPClaimed(event: PortalXPClaimed): void {
-  let claimedXp = ClaimedXp.load(event.transaction.from.toHex());
+  let claimedXp = ClaimedXp.load(
+    event.transaction.from.toHex() + event.params.portalId.toString()
+  );
 
   if (!claimedXp) {
-    claimedXp = new ClaimedXp(event.transaction.from.toHex());
+    claimedXp = new ClaimedXp(
+      event.transaction.from.toHex() + event.params.portalId.toString()
+    );
   }
 
   claimedXp.portalId = event.params.portalId;
